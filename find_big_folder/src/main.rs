@@ -1,6 +1,7 @@
 
 use std::fs;
 use std::path::Path;
+use std::time::{Instant};
 
 
 fn check_file(path: &Path) -> u64 {
@@ -41,8 +42,10 @@ fn check_path(path: &Path) -> bool {
 fn main() {
 
     let path: &Path = Path::new("../../");
+    
+    let start_time = Instant::now();
 
-    let isdir: bool = check_path(path);    
+    let isdir: bool = check_path(path);
     let result: u64;
 
     if isdir {
@@ -52,5 +55,7 @@ fn main() {
         result = check_file(path);
     }
 
-    println!("{}", result)
+    let elapsed_time = start_time.elapsed();
+
+    println!("{result} bytes and it took {elapsed_time:?}")
 }

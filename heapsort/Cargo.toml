@@ -1,4 +1,4 @@
 [package]
-name = "find_big_folder"
+name = "heapsort"
 version = "0.1.0"
 edition = "2021"
